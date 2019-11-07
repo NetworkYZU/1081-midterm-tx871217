@@ -22,6 +22,17 @@
                 <th>項目</th>
             </thead>
             <tbody>
+                <form method="POST" action="addOrder">
+                    <ol>
+                    <%
+                        ArrayList list=(ArrayList)session.getAttribute("foodList");
+                        for(int i=0;list!=null&&i<list.size();i++){
+                            String food=(String)list.get(i);
+                            out.println("<tr><td>"+food+"</td></tr>");
+                        }
+                    %>
+                    </ol>
+                </form><br/>
                 <!--
                 question 1 (30%)
                 從 session 取得 foodList 這個 attribute 
@@ -37,5 +48,6 @@
         question 2 (10%)
         引用 /WEB-INF/footer.jsp
         -->
+        <jsp:include page="/WEB-INF/footer.jsp"/>
     </body>
 </html>
